@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth *)",
+      "Bash(gh api *)",
+      "Bash(git --version)",
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(git config *)",
+      "Bash(brew install *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\('git'\\) || k.toLowerCase\\(\\).includes\\('github'\\)\\)\\)\")",
+      "Bash(node -e \"const { Client } = require\\('@notionhq/client'\\); const c = new Client\\({auth:'x'}\\); console.log\\(Object.keys\\(c\\)\\)\")",
+      "Bash(node -e \"const n = require\\('@notionhq/client'\\); console.log\\(Object.keys\\(n\\)\\)\")"
+    ]
+  }
+}
