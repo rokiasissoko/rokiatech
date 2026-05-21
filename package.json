@@ -1,5 +1,5 @@
 {
-  "name": "rokiatech-co",
+  "name": "rokiatech",
   "private": true,
   "workspaces": [
     "apps/*",
