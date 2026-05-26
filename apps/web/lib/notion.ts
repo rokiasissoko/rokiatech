@@ -11,8 +11,8 @@ export async function getProjects(): Promise<Project[]> {
   if (!PROJECTS_DATABASE_ID || !process.env.NOTION_API_KEY) return []
 
   try {
-    const response = await notion.dataSources.query({
-      data_source_id: PROJECTS_DATABASE_ID,
+    const response = await notion.databases.query({
+      database_id: PROJECTS_DATABASE_ID,
       filter: { property: 'Published', checkbox: { equals: true } },
       sorts: [{ property: 'Year', direction: 'descending' }],
     })
@@ -42,8 +42,8 @@ export async function getResearch(): Promise<ResearchItem[]> {
   if (!RESEARCH_DATABASE_ID || !process.env.NOTION_API_KEY) return []
 
   try {
-    const response = await notion.dataSources.query({
-      data_source_id: RESEARCH_DATABASE_ID,
+    const response = await notion.databases.query({
+      database_id: RESEARCH_DATABASE_ID,
       filter: { property: 'Published', checkbox: { equals: true } },
       sorts: [{ property: 'Year', direction: 'descending' }],
     })
