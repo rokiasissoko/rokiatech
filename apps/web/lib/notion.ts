@@ -19,7 +19,7 @@ export async function getProjects(): Promise<Project[]> {
 
     return response.results.map((page: any) => ({
       id: page.id,
-      title: page.properties?.['']?.title?.[0]?.plain_text ?? '',
+      title: page.properties?.Title?.title?.[0]?.plain_text ?? '',
       slug: page.properties?.Slug?.rich_text?.[0]?.plain_text ?? page.id,
       summary: page.properties?.Summary?.rich_text?.[0]?.plain_text ?? '',
       description: '',
