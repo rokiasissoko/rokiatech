@@ -9,7 +9,7 @@ export interface Project {
   links?: {
     github?: string
     demo?: string
-    paper?: string
+    slides?: string
   }
   featured?: boolean
 }
@@ -26,7 +26,8 @@ export interface ResearchItem {
   links?: {
     paper?: string
     slides?: string
-    code?: string
+    lessonPlan?: string
+    supplementary?: string
   }
 }
 

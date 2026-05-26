@@ -17,16 +17,17 @@ export async function getProjects(): Promise<Project[]> {
 
   return response.results.map((page: any) => ({
     id: page.id,
-    title: page.properties?.Title?.title?.[0]?.plain_text ?? '',
+    title: page.properties?.['']?.title?.[0]?.plain_text ?? '',
     slug: page.properties?.Slug?.rich_text?.[0]?.plain_text ?? page.id,
     summary: page.properties?.Summary?.rich_text?.[0]?.plain_text ?? '',
-    description: page.properties?.Description?.rich_text?.[0]?.plain_text ?? '',
+    description: '',
     tags: page.properties?.Tags?.multi_select?.map((t: any) => t.name) ?? [],
     year: page.properties?.Year?.number ?? new Date().getFullYear(),
     featured: page.properties?.Featured?.checkbox ?? false,
     links: {
       github: page.properties?.GitHub?.url ?? undefined,
       demo: page.properties?.Demo?.url ?? undefined,
+      slides: page.properties?.Slides?.url ?? undefined,
     },
   }))
 }
@@ -42,17 +43,18 @@ export async function getResearch(): Promise<ResearchItem[]> {
 
   return response.results.map((page: any) => ({
     id: page.id,
-    title: page.properties?.Title?.title?.[0]?.plain_text ?? '',
+    title: page.properties?.Name?.title?.[0]?.plain_text ?? '',
     slug: page.properties?.Slug?.rich_text?.[0]?.plain_text ?? page.id,
     summary: page.properties?.Summary?.rich_text?.[0]?.plain_text ?? '',
-    description: page.properties?.Description?.rich_text?.[0]?.plain_text ?? '',
+    description: '',
     tags: page.properties?.Tags?.multi_select?.map((t: any) => t.name) ?? [],
     year: page.properties?.Year?.number ?? new Date().getFullYear(),
     status: page.properties?.Status?.select?.name ?? 'in-progress',
     links: {
       paper: page.properties?.Paper?.url ?? undefined,
       slides: page.properties?.Slides?.url ?? undefined,
-      code: page.properties?.Code?.url ?? undefined,
+      lessonPlan: page.properties?.['Lesson Plan']?.url ?? undefined,
+      supplementary: page.properties?.Supplementary?.url ?? undefined,
     },
   }))
 }
