@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'BodoniModa';
+        src: url('data:font/woff2;base64,d09GMgABAAAAAARMAA8AAAAAB6gAAAPzAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhQbHhwoBmA/U1RBVFoAPBEICoNwgygLCAABNgIkAwwEIAWFLgcgG1MGyAQe+HfTPzcCqXtmlnbmkpWKJkxUYGoGnT39c2f+r8lHo+HArgAw8l+skiqKeFSWTXsTmPEAeTgVa5smwMu155KLAEJZ6IQntCOYVF0p2nXo1g8N5ZslEBBQK1DZSpLOjs4fbRcSjjbJfkU5LV1BBTVWOaFlz2mydIU6UlXWwg6d+KEXO7q+uHPs6voSr9NHe/Tv5xXaI1nXYe1nt7xB/WgJLcl5BJpxQSw+VxOpqNiaIhSYmO2yhYzIsUfnixgkyhOPAxkJScSWgC6lX2jSlccoIopOPyCJi5X66IlFIb9hBwrCunT6lJA++QJfBo6HZeLzBgJEQJJfgEMDJ6G9ylOBpBxEmb9JUcbFK0pKyNSoyYURU8MnLxGzE7Zv351x4cqVquvWxT6pc6qnN+H8+ftNL90718AT/6zu8e7r18cdvHq18bZd29I9YnbIUmbFbtmyI/Xy9es1vN6E57VOdlsXe+bMnUYX756tvz7uadaJHh5P/KFr15ps3bk1bT2z8kTY0rIyMdvvDw4XEUt9Pma9eRNsiwjGTA2bXLDE79+8Ghwqwpb6fL5ZPl/I0vtV4va88aF+dPCP+KTyOdQV5+Ju/92ofZiz/yenUwf2k8rqzmuz+saNk+61Lb4yLNv4uvla98kbz1e3nlfXL/cdlHbqk/6OsPaNGrcPc7T/7lQtV1/Z39auvePZiZ2eObW+NmzL+MqY49l54sTJOnbbMqlfds3T37V3hrVncUApP2pWz1bbJk5stXNW31FL1Cv7/um2fNecOfO2/93xxOWAek/9X0L1N0T1748ab7dqUBSxlLXBS2oUm62GlVdvLd/Vt+fCxN175YWV+tbXn3eOnjY9BYAbbfZIEp1WXjrbbmREs9802fkCng/3I1ecnn7hbW7+P+y/aiELtHoIHL2C7ilMv2wKefz/sH9HhCxoe259TlZO4FOfUV782rMWk1mHEy+qjOldznCOXQxKEDVXRDtEoIuKiIQmUhGZJnyJKFTnAqKSzDbEQWUmweE0oI1byISS0YhCIukjWtx6EaXVxCMxhBIMYnEP+lBEAaMppDM2nuWTw1gaUodibHqCeqE+vqdjkcMUTAZikkM2LuxduU0xFk3IRLbFWErJCeWyMOTp+RgUUYr3MulJB7rRhiLGUUQhOXS/6UanKNX6AfIZHYBJqaFEQDfTDbLIon5YnU6dTpXeIt+MpuRgU52mKbedek4HtDWuYiaXmKkPKpdS1i5fpx8uzLx0jcHRi1IbzcVkbChXa9w1StXVeAudqrUrZZeh2oWbMRiMbT1HJjk8Ng4TC5tS3DF9M4cx5GNSC5vJFGOSmQel2pw2F4Et1GENAAA=') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+    <linearGradient id="goldBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#c8a84b"/>
+      <stop offset="25%"  stop-color="#e8d48a"/>
+      <stop offset="50%"  stop-color="#d4a829"/>
+      <stop offset="75%"  stop-color="#f0e0a0"/>
+      <stop offset="100%" stop-color="#b8900a"/>
+    </linearGradient>
+    <linearGradient id="shimmer" x1="-100%" y1="0%" x2="200%" y2="0%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#c8a84b" stop-opacity="1"/>
+      <stop offset="35%"  stop-color="#e8d48a" stop-opacity="1"/>
+      <stop offset="50%"  stop-color="#fffbe8" stop-opacity="1"/>
+      <stop offset="65%"  stop-color="#e8d48a" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#b8900a" stop-opacity="1"/>
+      <animateTransform
+        attributeName="gradientTransform"
+        type="translate"
+        from="-32 0"
+        to="64 0"
+        dur="2.4s"
+        repeatCount="indefinite"
+      />
+    </linearGradient>
+  </defs>
+
+  <!-- R base in gold -->
+  <text
+    x="16"
+    y="26"
+    text-anchor="middle"
+    font-family="'BodoniModa', 'Bodoni Moda', 'Bodoni MT', 'Didot', 'GFS Didot', 'Times New Roman', serif"
+    font-size="27"
+    font-style="normal"
+    font-weight="700"
+    fill="url(#goldBase)"
+  >R</text>
+
+  <!-- R shimmer overlay -->
+  <text
+    x="16"
+    y="26"
+    text-anchor="middle"
+    font-family="'BodoniModa', 'Bodoni Moda', 'Bodoni MT', 'Didot', 'GFS Didot', 'Times New Roman', serif"
+    font-size="27"
+    font-style="normal"
+    font-weight="700"
+    fill="url(#shimmer)"
+    opacity="0.75"
+  >R</text>
+</svg>
