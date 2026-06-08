@@ -12,7 +12,10 @@
       "Bash(npm run *)",
       "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\('git'\\) || k.toLowerCase\\(\\).includes\\('github'\\)\\)\\)\")",
       "Bash(node -e \"const { Client } = require\\('@notionhq/client'\\); const c = new Client\\({auth:'x'}\\); console.log\\(Object.keys\\(c\\)\\)\")",
-      "Bash(node -e \"const n = require\\('@notionhq/client'\\); console.log\\(Object.keys\\(n\\)\\)\")"
+      "Bash(node -e \"const n = require\\('@notionhq/client'\\); console.log\\(Object.keys\\(n\\)\\)\")",
+      "mcp__418479f7-18fd-4e8c-9b32-d439abd13d56__notion-search",
+      "mcp__418479f7-18fd-4e8c-9b32-d439abd13d56__notion-fetch",
+      "Bash(vercel --prod)"
     ]
   }
 }
