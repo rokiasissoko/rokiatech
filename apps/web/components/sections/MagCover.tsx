@@ -14,7 +14,7 @@ const COVERLINES = [
   {
     pos: 'mr',
     kicker: 'ON RESEARCH',
-    title: ['Tech & People, ', 'Interwoven'],
+    title: ['Tech & Education, ', 'Interwoven'],
     href: '/research',
   },
 ]

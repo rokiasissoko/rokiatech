@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Bodoni_Moda, Archivo } from 'next/font/google'
 import './globals.css'
 import { Nav } from '@/components/sections/Nav'
+import { Analytics } from '@vercel/analytics/next'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -35,8 +36,11 @@ export const metadata: Metadata = {
   description:
     'Software engineer and graduate researcher building AI-powered platforms, immersive experiences, and research tools.',
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
+    icon: [
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.png',
   },
   openGraph: {
     type: 'website',
@@ -57,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             © {new Date().getFullYear()} Rokia Sissoko. Built with Next.js & Tailwind.
           </p>
         </footer>
+        <Analytics />
       </body>
     </html>
   )
