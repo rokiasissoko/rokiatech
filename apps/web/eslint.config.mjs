@@ -13,6 +13,11 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // eslint-plugin-react crashes on ESLint 10 for non-React server files.
+  {
+    files: ["app/api/**/*.ts"],
+    rules: { "react/display-name": "off" },
+  },
 ]);
 
 export default eslintConfig;
