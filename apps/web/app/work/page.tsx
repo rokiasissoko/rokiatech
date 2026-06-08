@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getProjects } from '@/lib/notion'
 import { ProjectCard } from '@/components/sections/ProjectCard'
+import { PasswordGate } from '@/components/ui/PasswordGate'
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -13,6 +14,7 @@ export default async function WorkPage() {
   const projects = await getProjects()
 
   return (
+    <PasswordGate>
     <div className="py-16">
       <div className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight">Work</h1>
@@ -31,5 +33,6 @@ export default async function WorkPage() {
         </div>
       )}
     </div>
+    </PasswordGate>
   )
 }

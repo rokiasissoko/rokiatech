@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Bodoni_Moda, Archivo } from 'next/font/google'
 import './globals.css'
 import { Nav } from '@/components/sections/Nav'
 
@@ -13,6 +13,20 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+const bodoniModa = Bodoni_Moda({
+  variable: '--font-bodoni',
+  subsets: ['latin'],
+  axes: ['opsz'],
+  style: ['normal', 'italic'],
+  weight: 'variable',
+})
+
+const archivo = Archivo({
+  variable: '--font-archivo',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+})
+
 export const metadata: Metadata = {
   title: {
     default: 'Rokia Sissoko — Software Engineer & Researcher',
@@ -20,6 +34,10 @@ export const metadata: Metadata = {
   },
   description:
     'Software engineer and graduate researcher building AI-powered platforms, immersive experiences, and research tools.',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -30,7 +48,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${bodoniModa.variable} ${archivo.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Nav />
         <main className="mx-auto w-full max-w-5xl flex-1 px-6">{children}</main>

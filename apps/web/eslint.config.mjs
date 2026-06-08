@@ -13,6 +13,10 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // eslint-plugin-react calls context.getFilename() which was removed in
+  // ESLint 10. Pinning the version prevents the auto-detect codepath.
+  { settings: { react: { version: "19" } } },
+  globalIgnores(["app/api/**"]),
 ]);
 
 export default eslintConfig;
