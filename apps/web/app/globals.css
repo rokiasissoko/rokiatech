@@ -124,7 +124,7 @@ body {
 .cover-cutout {
   position: absolute !important;
   left: 50% !important;
-  bottom: -6% !important;
+  bottom: 0 !important;
   transform: translateX(-50%) !important;
   height: 74% !important;
   width: auto !important;
@@ -231,7 +231,7 @@ body {
 .mh-word {
   font-family: var(--serif);
   font-weight: 900;
-  font-size: clamp(88px, 18.2vw, 268px);
+  font-size: clamp(78px, 15.5vw, 230px);
   line-height: .84;
   letter-spacing: .005em;
   color: #9A7A28;
@@ -267,10 +267,10 @@ body {
   top: 49%;
   transform: translate(-50%, -50%);
   font-family: var(--mag-sans);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .066em;
-  letter-spacing: .14em;
-  padding-left: .14em;
+  letter-spacing: .24em;
+  padding-left: .24em;
   line-height: 1;
   color: #1A140D;
   -webkit-text-fill-color: #1A140D;
