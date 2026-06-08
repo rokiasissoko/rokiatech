@@ -1,5 +1,5 @@
-import { Hero } from '@/components/sections/Hero'
+import { MagCover } from '@/components/sections/MagCover'
 
 export default function HomePage() {
-  return <Hero />
+  return <MagCover />
 }
