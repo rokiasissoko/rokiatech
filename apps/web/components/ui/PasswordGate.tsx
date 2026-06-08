@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const SESSION_KEY = 'rokiatech_unlocked'
 
@@ -10,6 +10,7 @@ export function PasswordGate({ children }: { children: React.ReactNode }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (sessionStorage.getItem(SESSION_KEY) === 'true') {
@@ -18,6 +19,12 @@ export function PasswordGate({ children }: { children: React.ReactNode }) {
     }
     setReady(true)
   }, [])
+
+  useEffect(() => {
+    if (ready && !unlocked) {
+      setTimeout(() => inputRef.current?.focus(), 50)
+    }
+  }, [ready, unlocked])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -36,52 +43,68 @@ export function PasswordGate({ children }: { children: React.ReactNode }) {
         sessionStorage.setItem(SESSION_KEY, 'true')
         setUnlocked(true)
       } else {
-        setError('Incorrect password.')
+        setError('Wrong password — try again.')
+        setPassword('')
+        inputRef.current?.focus()
       }
     } catch {
-      setError('Something went wrong. Try again.')
+      setError('Something went wrong.')
     } finally {
       setLoading(false)
     }
   }
 
   if (!ready) return null
-
   if (unlocked) return <>{children}</>
 
   return (
-    <div className="flex min-h-[60vh] items-center justify-center py-24">
-      <div className="w-full max-w-sm">
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold tracking-tight">Password required</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            This section is private. Enter the password to continue.
-          </p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter password"
-              autoFocus
-              required
-              className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-            {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 disabled:opacity-50"
-          >
-            {loading ? 'Checking…' : 'Unlock'}
-          </button>
-        </form>
+    <>
+      {/* page content blurred behind the overlay */}
+      <div style={{ filter: 'blur(6px)', pointerEvents: 'none', userSelect: 'none' }}>
+        {children}
       </div>
-    </div>
+
+      {/* magazine-style overlay */}
+      <div className="iv-overlay" style={{ zIndex: 200 }}>
+        <div className="iv-panel" style={{ maxWidth: 480 }}>
+          <h2 className="iv-title" style={{ fontSize: 'clamp(28px,4vw,42px)', marginTop: 0 }}>
+            Enter the <em>password</em>
+          </h2>
+
+          <form onSubmit={handleSubmit} style={{ marginTop: 24 }}>
+            <div className="iv-bar" style={{ marginTop: 0 }}>
+              <input
+                ref={inputRef}
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Access code…"
+                required
+                className="iv-input"
+                autoComplete="current-password"
+              />
+              <button type="submit" className="iv-ask" disabled={loading || !password}>
+                {loading ? '···' : 'UNLOCK'}
+              </button>
+            </div>
+
+            {error && (
+              <p
+                style={{
+                  fontFamily: 'var(--mag-sans)',
+                  fontSize: 11,
+                  fontWeight: 700,
+                  letterSpacing: '0.14em',
+                  color: '#9E2B2B',
+                  marginTop: 10,
+                }}
+              >
+                {error}
+              </p>
+            )}
+          </form>
+        </div>
+      </div>
+    </>
   )
 }
