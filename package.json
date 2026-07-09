@@ -14,7 +14,7 @@
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "devDependencies": {
-    "prettier": "^3.8.3"
+    "prettier": "^3.9.4"
   },
   "engines": {
     "node": ">=20.0.0"
