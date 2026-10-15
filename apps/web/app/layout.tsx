@@ -44,7 +44,14 @@ const jsonLd = {
       image: `${SITE_URL}/rokia-cover.jpg`,
       jobTitle: 'Software Engineer',
       description: DESCRIPTION,
-      sameAs: ['https://github.com/rokiasissoko'],
+      sameAs: [
+        'https://www.linkedin.com/in/rokiasissoko/',
+        'https://github.com/rokiasissoko',
+        'https://x.com/rokiatech',
+        'https://www.instagram.com/rokiatech/',
+        'https://www.tiktok.com/@rokiatech',
+        'https://www.youtube.com/@rokiatech',
+      ],
     },
     {
       '@type': 'WebSite',
@@ -78,7 +85,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: 'Rokia Sissoko · rokiatech',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', site: '@rokiatech', creator: '@rokiatech' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
