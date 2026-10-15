@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Graduate research in XR, social skills development, and culturally responsive learning.',
 }
 
-export const revalidate = 3600
+export const revalidate = 600 // fallback; /api/revalidate refreshes on Notion changes
 
 export default async function ResearchPage() {
   const items = await getResearch()
