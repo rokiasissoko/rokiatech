@@ -28,13 +28,42 @@ const archivo = Archivo({
   weight: ['400', '500', '600', '700'],
 })
 
+const SITE_URL = 'https://rokiatech.co'
+const DESCRIPTION =
+  'Software engineer and graduate researcher building AI-powered platforms, immersive experiences, and research tools.'
+
+// schema.org graph so search engines tie the name "Rokia Sissoko" and the "rokiatech" brand to this site
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/#person`,
+      name: 'Rokia Sissoko',
+      url: SITE_URL,
+      image: `${SITE_URL}/rokia-cover.jpg`,
+      jobTitle: 'Software Engineer',
+      description: DESCRIPTION,
+      sameAs: ['https://github.com/rokiasissoko'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      name: 'rokiatech',
+      alternateName: ['Rokia Sissoko', 'rokiatech.co'],
+      url: SITE_URL,
+      publisher: { '@id': `${SITE_URL}/#person` },
+    },
+  ],
+}
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Rokia Sissoko',
+    default: 'Rokia Sissoko · rokiatech',
     template: '%s | Rokia Sissoko',
   },
-  description:
-    'Software engineer and graduate researcher building AI-powered platforms, immersive experiences, and research tools.',
+  description: DESCRIPTION,
   icons: {
     icon: [
       { url: '/favicon.png?v=3', type: 'image/png', sizes: '32x32' },
@@ -46,9 +75,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://rokiatech.co',
-    siteName: 'Rokia Sissoko',
+    url: SITE_URL,
+    siteName: 'Rokia Sissoko · rokiatech',
   },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -56,6 +86,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${bodoniModa.variable} ${archivo.variable} h-full antialiased`}>
       {/* browser extensions (Grammarly, ColorZilla, …) inject attributes on <body> before hydration */}
       <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        />
         <Nav />
         <main className="mx-auto w-full max-w-5xl flex-1 px-6">{children}</main>
         <footer className="mx-auto w-full max-w-5xl border-t px-6 py-8 mt-24">
