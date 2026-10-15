@@ -501,6 +501,13 @@ body {
   .mh-issue { letter-spacing: .14em; }
 }
 
+/* phones: the URL collides with the nav, so drop it and give the nav the full width */
+@media (max-width: 600px) {
+  .cover-bottom { justify-content: center; padding: 14px 16px 16px; }
+  .cb-l { display: none; }
+  .cb-nav { gap: 12px; letter-spacing: .16em; }
+}
+
 /* ── Interview chat ──────────────────────────────────────────────── */
 .iv-overlay {
   position: fixed;

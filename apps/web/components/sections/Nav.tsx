@@ -8,6 +8,7 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/work', label: 'Work' },
   { href: '/research', label: 'Research' },
+  { href: '/press', label: 'Press' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -16,11 +17,12 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-semibold tracking-tight">
+      {/* links drop below the name on phones so five items fit without sideways scroll */}
+      <nav className="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <Link href="/" className="whitespace-nowrap font-semibold tracking-tight">
           rokia sissoko
         </Link>
-        <ul className="flex items-center gap-6">
+        <ul className="flex items-center gap-4 sm:gap-6">
           {links.map(({ href, label }) => (
             <li key={href}>
               <Link
