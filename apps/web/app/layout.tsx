@@ -32,6 +32,58 @@ const SITE_URL = 'https://rokiatech.co'
 const DESCRIPTION =
   'Software engineer and graduate researcher building AI-powered platforms, immersive experiences, and research tools.'
 
+// press coverage about Rokia, as opposed to her own profiles in sameAs
+const PRESS = [
+  [
+    '2012-11-29',
+    'New York Daily News',
+    'Once-failing Bronx charter school rings in this school year with smartphones and higher scores',
+    'https://www.nydailynews.com/2012/11/29/once-failing-bronx-charter-school-rings-in-this-school-year-with-smartphones-and-higher-scores/',
+  ],
+  [
+    '2015-02-01',
+    'NBC News',
+    "These Kids From The Bronx Inspired Verizon's Black History Ad",
+    'https://www.nbcnews.com/news/nbcblk/these-kids-bronx-inspired-verizons-black-history-ad-n297806',
+  ],
+  [
+    '2015-02-02',
+    'Welcome2TheBronx',
+    'Bronx Kids Who Beat 350 Teams In Country To Create Math App Will Be Featured in Black History Month Verizon Ad',
+    'https://www.welcome2thebronx.com/2015/02/bronx-kids-who-beat-350-teams-in-country-to-create-math-app-will-be-featured-in-black-history-month-verizon-ad/',
+  ],
+  [
+    '2015-02-03',
+    'The Evangelical Covenant Church',
+    'Bronx Kids Featured in Verizon Black History Month Commercial',
+    'https://covchurch.org/2015/02/02/bronx-kids-featured-in-verizon-black-history-month-commercial/',
+  ],
+  [
+    '2015-02-04',
+    'The Root',
+    "We Can't Sit Back and Watch History, We've Got to Create It",
+    'https://www.theroot.com/we-cant-sit-back-and-watch-history-weve-got-to-create-it',
+  ],
+  [
+    '2015-02-06',
+    'MyPraise 102.5 Atlanta',
+    'Beautiful News: 6 8th Graders Of Color From The Bronx To Star In Two Inspiring Verizon Commercials',
+    'https://mypraiseatl.com/1556880/beautiful-news-6-8th-graders-of-color-from-the-bronx-to-star-in-two-inspiring-verizon-commercials-video/',
+  ],
+  [
+    '2015-02-07',
+    'Bronx Times',
+    'Bronx students are face of Verizon campaign',
+    'https://www.bxtimes.com/bronx-students-are-face-of-verizon-campaign/',
+  ],
+].map(([datePublished, publisher, headline, url]) => ({
+  '@type': 'NewsArticle',
+  headline,
+  url,
+  datePublished,
+  publisher: { '@type': 'Organization', name: publisher },
+}))
+
 // schema.org graph so search engines tie the name "Rokia Sissoko" and the "rokiatech" brand to this site
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -54,23 +106,7 @@ const jsonLd = {
         'https://www.youtube.com/@rokiatech',
         'https://linktr.ee/rokiatech',
       ],
-      // press coverage about Rokia, as opposed to her own profiles above
-      subjectOf: [
-        {
-          '@type': 'NewsArticle',
-          headline: "These Kids From The Bronx Inspired Verizon's Black History Ad",
-          url: 'https://www.nbcnews.com/news/nbcblk/these-kids-bronx-inspired-verizons-black-history-ad-n297806',
-          datePublished: '2015-02-01',
-          publisher: { '@type': 'Organization', name: 'NBC News' },
-        },
-        {
-          '@type': 'NewsArticle',
-          headline: 'Bronx Kids Featured in Verizon Black History Month Commercial',
-          url: 'https://covchurch.org/2015/02/02/bronx-kids-featured-in-verizon-black-history-month-commercial/',
-          datePublished: '2015-02-03',
-          publisher: { '@type': 'Organization', name: 'The Evangelical Covenant Church' },
-        },
-      ],
+      subjectOf: PRESS,
     },
     {
       '@type': 'WebSite',
