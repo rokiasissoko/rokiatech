@@ -60,6 +60,7 @@ export function MagCover() {
             <span className="mh-issue">SOFTWARE ENGINEER · EDTECH RESEARCH</span>
             <span className="rule" />
           </div>
+          <p className="mh-deck">Rokia Sissoko is a software engineer and researcher.</p>
         </header>
 
         {/* coverlines */}
