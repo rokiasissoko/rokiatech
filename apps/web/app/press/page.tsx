@@ -23,9 +23,11 @@ export default function PressPage() {
         <h1 className="text-4xl font-bold tracking-tight">Rokia Sissoko in the Press</h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">
           Rokia Sissoko (Rokiatou Sissoko) was one of six students at the Bronx Academy of Promise
-          who built QuestMath, a Greek mythology&ndash;themed game that helps students in grades 4
-          through 8 sharpen their math skills. Each level is based on a Greek god, the problems get
-          harder as players climb, and a tutor steps in after three wrong answers in a row.
+          who built QuestMath, a Greek mythology&ndash;themed game they designed to solve their own
+          struggles with math. It helps students in grades 4 through 8 practice addition,
+          subtraction, multiplication and division across progressive levels named after Greek gods
+          like Zeus, Aphrodite and Poseidon. The problems get harder as players climb, and a tutor
+          steps in after three wrong answers in a row.
         </p>
         <p className="mt-4 max-w-2xl text-muted-foreground">
           The team designed and programmed QuestMath in MIT App Inventor as sixth graders, and it
