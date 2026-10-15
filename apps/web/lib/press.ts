@@ -14,13 +14,13 @@ export type CampaignVideo = {
   thumb: string
 }
 
+// ordered by outlet prominence, most recognizable first; the /press page lists them in this order
 export const pressArticles: PressArticle[] = [
   {
-    date: '2012-11-29',
-    outlet: 'New York Daily News',
-    headline:
-      'Once-failing Bronx charter school rings in this school year with smartphones and higher scores',
-    url: 'https://www.nydailynews.com/2012/11/29/once-failing-bronx-charter-school-rings-in-this-school-year-with-smartphones-and-higher-scores/',
+    date: '2015-02-01',
+    outlet: 'NBC News',
+    headline: "These Kids From The Bronx Inspired Verizon's Black History Ad",
+    url: 'https://www.nbcnews.com/news/nbcblk/these-kids-bronx-inspired-verizons-black-history-ad-n297806',
   },
   {
     date: '2013-03-20',
@@ -30,23 +30,11 @@ export const pressArticles: PressArticle[] = [
     url: 'https://www.nydailynews.com/2013/03/20/mott-haven-6th-graders-take-top-honors-in-national-app-design-contest-students-use-game-to-teach-math/',
   },
   {
-    date: '2015-02-01',
-    outlet: 'NBC News',
-    headline: "These Kids From The Bronx Inspired Verizon's Black History Ad",
-    url: 'https://www.nbcnews.com/news/nbcblk/these-kids-bronx-inspired-verizons-black-history-ad-n297806',
-  },
-  {
-    date: '2015-02-02',
-    outlet: 'Welcome2TheBronx',
+    date: '2012-11-29',
+    outlet: 'New York Daily News',
     headline:
-      'Bronx Kids Who Beat 350 Teams In Country To Create Math App Will Be Featured in Black History Month Verizon Ad',
-    url: 'https://www.welcome2thebronx.com/2015/02/bronx-kids-who-beat-350-teams-in-country-to-create-math-app-will-be-featured-in-black-history-month-verizon-ad/',
-  },
-  {
-    date: '2015-02-03',
-    outlet: 'The Evangelical Covenant Church',
-    headline: 'Bronx Kids Featured in Verizon Black History Month Commercial',
-    url: 'https://covchurch.org/2015/02/02/bronx-kids-featured-in-verizon-black-history-month-commercial/',
+      'Once-failing Bronx charter school rings in this school year with smartphones and higher scores',
+    url: 'https://www.nydailynews.com/2012/11/29/once-failing-bronx-charter-school-rings-in-this-school-year-with-smartphones-and-higher-scores/',
   },
   {
     date: '2015-02-04',
@@ -61,11 +49,16 @@ export const pressArticles: PressArticle[] = [
     url: 'https://www.dnainfo.com/new-york/20150204/high-bridge/south-bronx-students-starring-national-verizon-wireless-ad-campaign',
   },
   {
+    date: '2015-02-07',
+    outlet: 'Bronx Times',
+    headline: 'Bronx students are face of Verizon campaign',
+    url: 'https://www.bxtimes.com/bronx-students-are-face-of-verizon-campaign/',
+  },
+  {
     date: '2015-02-06',
-    outlet: 'MyPraise 102.5 Atlanta',
-    headline:
-      'Beautiful News: 6 8th Graders Of Color From The Bronx To Star In Two Inspiring Verizon Commercials',
-    url: 'https://mypraiseatl.com/1556880/beautiful-news-6-8th-graders-of-color-from-the-bronx-to-star-in-two-inspiring-verizon-commercials-video/',
+    outlet: 'Bronx Times (print edition)',
+    headline: 'Bronx students are face of Verizon app',
+    url: 'https://www.bxtimes.com/wp-content/uploads/assets/pdf/2015_06bxt.pdf',
   },
   {
     date: '2015-02-06',
@@ -76,21 +69,29 @@ export const pressArticles: PressArticle[] = [
   },
   {
     date: '2015-02-06',
-    outlet: 'Bronx Times (print edition)',
-    headline: 'Bronx students are face of Verizon app',
-    url: 'https://www.bxtimes.com/wp-content/uploads/assets/pdf/2015_06bxt.pdf',
-  },
-  {
-    date: '2015-02-07',
-    outlet: 'Bronx Times',
-    headline: 'Bronx students are face of Verizon campaign',
-    url: 'https://www.bxtimes.com/bronx-students-are-face-of-verizon-campaign/',
+    outlet: 'MyPraise 102.5 Atlanta',
+    headline:
+      'Beautiful News: 6 8th Graders Of Color From The Bronx To Star In Two Inspiring Verizon Commercials',
+    url: 'https://mypraiseatl.com/1556880/beautiful-news-6-8th-graders-of-color-from-the-bronx-to-star-in-two-inspiring-verizon-commercials-video/',
   },
   {
     date: '2015-02-17',
     outlet: 'UrbanGeekz',
     headline: 'Bronx kids design Math App to become faces of major ads campaign',
     url: 'https://urbangeekz.com/2015/02/bronx-kids-design-award-winning-math-app-become-faces-major-ads-campaign/',
+  },
+  {
+    date: '2015-02-02',
+    outlet: 'Welcome2TheBronx',
+    headline:
+      'Bronx Kids Who Beat 350 Teams In Country To Create Math App Will Be Featured in Black History Month Verizon Ad',
+    url: 'https://www.welcome2thebronx.com/2015/02/bronx-kids-who-beat-350-teams-in-country-to-create-math-app-will-be-featured-in-black-history-month-verizon-ad/',
+  },
+  {
+    date: '2015-02-03',
+    outlet: 'The Evangelical Covenant Church',
+    headline: 'Bronx Kids Featured in Verizon Black History Month Commercial',
+    url: 'https://covchurch.org/2015/02/02/bronx-kids-featured-in-verizon-black-history-month-commercial/',
   },
 ]
 

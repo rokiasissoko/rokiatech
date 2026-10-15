@@ -17,8 +17,6 @@ function formatDate(date: string) {
 }
 
 export default function PressPage() {
-  const articles = [...pressArticles].reverse()
-
   return (
     <div className="py-16">
       <div className="mb-12">
@@ -67,7 +65,7 @@ export default function PressPage() {
       <section>
         <h2 className="text-2xl font-semibold tracking-tight">Articles</h2>
         <ol className="mt-6 divide-y border-y">
-          {articles.map(({ date, outlet, headline, url }) => (
+          {pressArticles.map(({ date, outlet, headline, url }) => (
             <li key={url} className="py-4">
               <p className="text-sm text-muted-foreground">
                 <span className="font-medium text-foreground">{outlet}</span>
