@@ -32,6 +32,131 @@ const SITE_URL = 'https://rokiatech.co'
 const DESCRIPTION =
   'Software engineer and graduate researcher building AI-powered platforms, immersive experiences, and research tools.'
 
+// press coverage about Rokia, as opposed to her own profiles in sameAs
+const PRESS = [
+  [
+    '2012-11-29',
+    'New York Daily News',
+    'Once-failing Bronx charter school rings in this school year with smartphones and higher scores',
+    'https://www.nydailynews.com/2012/11/29/once-failing-bronx-charter-school-rings-in-this-school-year-with-smartphones-and-higher-scores/',
+  ],
+  [
+    '2013-03-20',
+    'New York Daily News',
+    'Mott Haven 6th graders take top honors in national app design contest; students use game to teach math',
+    'https://www.nydailynews.com/2013/03/20/mott-haven-6th-graders-take-top-honors-in-national-app-design-contest-students-use-game-to-teach-math/',
+  ],
+  [
+    '2015-02-01',
+    'NBC News',
+    "These Kids From The Bronx Inspired Verizon's Black History Ad",
+    'https://www.nbcnews.com/news/nbcblk/these-kids-bronx-inspired-verizons-black-history-ad-n297806',
+  ],
+  [
+    '2015-02-02',
+    'Welcome2TheBronx',
+    'Bronx Kids Who Beat 350 Teams In Country To Create Math App Will Be Featured in Black History Month Verizon Ad',
+    'https://www.welcome2thebronx.com/2015/02/bronx-kids-who-beat-350-teams-in-country-to-create-math-app-will-be-featured-in-black-history-month-verizon-ad/',
+  ],
+  [
+    '2015-02-03',
+    'The Evangelical Covenant Church',
+    'Bronx Kids Featured in Verizon Black History Month Commercial',
+    'https://covchurch.org/2015/02/02/bronx-kids-featured-in-verizon-black-history-month-commercial/',
+  ],
+  [
+    '2015-02-04',
+    'The Root',
+    "We Can't Sit Back and Watch History, We've Got to Create It",
+    'https://www.theroot.com/we-cant-sit-back-and-watch-history-weve-got-to-create-it',
+  ],
+  [
+    '2015-02-04',
+    'DNAinfo New York',
+    'South Bronx Students Starring in National Verizon Wireless Ad Campaign',
+    'https://www.dnainfo.com/new-york/20150204/high-bridge/south-bronx-students-starring-national-verizon-wireless-ad-campaign',
+  ],
+  [
+    '2015-02-06',
+    'MyPraise 102.5 Atlanta',
+    'Beautiful News: 6 8th Graders Of Color From The Bronx To Star In Two Inspiring Verizon Commercials',
+    'https://mypraiseatl.com/1556880/beautiful-news-6-8th-graders-of-color-from-the-bronx-to-star-in-two-inspiring-verizon-commercials-video/',
+  ],
+  [
+    '2015-02-06',
+    'Hello Beautiful',
+    'Beautiful News: Six 8th Graders Of Color From The Bronx To Star In Two Inspiring Verizon Commercials',
+    'https://hellobeautiful.com/2768368/kids-from-the-bronx-star-in-verizon-black-history-month-commercials/',
+  ],
+  [
+    '2015-02-06',
+    'Bronx Times (print edition)',
+    'Bronx students are face of Verizon app',
+    'https://www.bxtimes.com/wp-content/uploads/assets/pdf/2015_06bxt.pdf',
+  ],
+  [
+    '2015-02-07',
+    'Bronx Times',
+    'Bronx students are face of Verizon campaign',
+    'https://www.bxtimes.com/bronx-students-are-face-of-verizon-campaign/',
+  ],
+  [
+    '2015-02-17',
+    'UrbanGeekz',
+    'Bronx kids design Math App to become faces of major ads campaign',
+    'https://urbangeekz.com/2015/02/bronx-kids-design-award-winning-math-app-become-faces-major-ads-campaign/',
+  ],
+].map(([datePublished, publisher, headline, url]) => ({
+  '@type': 'NewsArticle',
+  headline,
+  url,
+  datePublished,
+  publisher: { '@type': 'Organization', name: publisher },
+}))
+
+// the Verizon "Create History" TV spot the press above covers
+const VERIZON_AD = {
+  '@type': 'CreativeWork',
+  name: "Verizon TV Spot, 'Create History: Assembly'",
+  url: 'https://www.ispot.tv/ad/7xoi/verizon-create-history-assembly',
+  datePublished: '2015-02-02',
+  description:
+    'Verizon Black History Month commercial featuring the six Bronx Academy of Promise students who won the Verizon Innovative App Challenge.',
+  sponsor: { '@type': 'Organization', name: 'Verizon' },
+}
+
+// Vimeo cuts of the same campaign featuring Rokia; thumbnails and durations from Vimeo oEmbed
+const VIDEOS = [
+  [
+    '118177814',
+    "Verizon 'Create History: Assembly' (30s spot)",
+    'PT30S',
+    '505150468-dbc536acd4426eeaebb24ab8a3ab36799b054c889db8fe5fc98b20915c68b436',
+  ],
+  [
+    '118177812',
+    'Verizon Create History: Opening Doors',
+    'PT1M59S',
+    '505150472-21e7cda7b3a365c8846d3b93edcaa38079f66b685f500d3eebee154632b3c386',
+  ],
+  [
+    '118177813',
+    'Verizon Create History: How We Built an App',
+    'PT2M12S',
+    '505150474-ea87de8b05bb5c47fae6def0f57bd2e24a7843f6412e3e8bd4cc5d3f63f01737',
+  ],
+].map(([id, name, duration, thumb]) => ({
+  '@type': 'VideoObject',
+  name,
+  description:
+    'From Verizon\'s 2015 Black History Month "Create History" campaign featuring Bronx Academy of Promise students, including Rokia Sissoko.',
+  url: `https://vimeo.com/${id}`,
+  embedUrl: `https://player.vimeo.com/video/${id}`,
+  thumbnailUrl: `https://i.vimeocdn.com/video/${thumb}-d_640`,
+  uploadDate: '2015-01-29',
+  duration,
+}))
+
 // schema.org graph so search engines tie the name "Rokia Sissoko" and the "rokiatech" brand to this site
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -40,11 +165,22 @@ const jsonLd = {
       '@type': 'Person',
       '@id': `${SITE_URL}/#person`,
       name: 'Rokia Sissoko',
+      alternateName: 'Rokiatou Sissoko',
       url: SITE_URL,
       image: `${SITE_URL}/rokia-cover.jpg`,
       jobTitle: 'Software Engineer',
       description: DESCRIPTION,
-      sameAs: ['https://github.com/rokiasissoko'],
+      sameAs: [
+        'https://www.linkedin.com/in/rokiasissoko/',
+        'https://github.com/rokiasissoko',
+        'https://www.researchgate.net/profile/Rokia-Sissoko',
+        'https://x.com/rokiatech',
+        'https://www.instagram.com/rokiatech/',
+        'https://www.tiktok.com/@rokiatech',
+        'https://www.youtube.com/@rokiatech',
+        'https://linktr.ee/rokiatech',
+      ],
+      subjectOf: [...PRESS, VERIZON_AD, ...VIDEOS],
     },
     {
       '@type': 'WebSite',
@@ -78,7 +214,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: 'Rokia Sissoko · rokiatech',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', site: '@rokiatech', creator: '@rokiatech' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
