@@ -126,13 +126,14 @@ body {
   left: 50% !important;
   bottom: 0 !important;
   transform: translateX(-50%) !important;
-  height: 74% !important;
+  height: 68% !important;
   width: auto !important;
   max-width: none !important;
   z-index: 1;
   object-fit: contain;
   object-position: bottom;
-  filter: drop-shadow(0 18px 30px rgba(40,28,14,.22));
+  /* tone down the source's warm grade so it reads less edited */
+  filter: saturate(0.7) contrast(1.03) brightness(1.02) drop-shadow(0 18px 30px rgba(40,28,14,.22));
 }
 
 .mag.grain .cover::after {
