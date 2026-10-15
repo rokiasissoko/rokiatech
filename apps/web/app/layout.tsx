@@ -30,17 +30,18 @@ const archivo = Archivo({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Rokia Sissoko — Software Engineer & Researcher',
+    default: 'Rokia Sissoko',
     template: '%s | Rokia Sissoko',
   },
   description:
     'Software engineer and graduate researcher building AI-powered platforms, immersive experiences, and research tools.',
   icons: {
     icon: [
-      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png?v=3', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-192.png?v=3', type: 'image/png', sizes: '192x192' },
     ],
-    shortcut: '/favicon.png',
+    shortcut: '/favicon.png?v=3',
+    apple: '/apple-touch-icon.png?v=3',
   },
   openGraph: {
     type: 'website',
@@ -53,7 +54,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${bodoniModa.variable} ${archivo.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      {/* browser extensions (Grammarly, ColorZilla, …) inject attributes on <body> before hydration */}
+      <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <Nav />
         <main className="mx-auto w-full max-w-5xl flex-1 px-6">{children}</main>
         <footer className="mx-auto w-full max-w-5xl border-t px-6 py-8 mt-24">

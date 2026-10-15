@@ -40,7 +40,7 @@ export function MagCover() {
           <span className="studio-shadow" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/rokia-cutout.png"
+            src="/rokia-cutout.webp"
             alt="Rokia Sissoko"
             className="cover-cutout"
           />

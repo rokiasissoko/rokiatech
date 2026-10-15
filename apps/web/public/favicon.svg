@@ -9,30 +9,18 @@
       }
     </style>
     <linearGradient id="goldBase" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#c8a84b"/>
-      <stop offset="25%"  stop-color="#e8d48a"/>
-      <stop offset="50%"  stop-color="#d4a829"/>
-      <stop offset="75%"  stop-color="#f0e0a0"/>
-      <stop offset="100%" stop-color="#b8900a"/>
-    </linearGradient>
-    <linearGradient id="shimmer" x1="-100%" y1="0%" x2="200%" y2="0%" gradientUnits="userSpaceOnUse">
-      <stop offset="0%"   stop-color="#c8a84b" stop-opacity="1"/>
-      <stop offset="35%"  stop-color="#e8d48a" stop-opacity="1"/>
-      <stop offset="50%"  stop-color="#fffbe8" stop-opacity="1"/>
-      <stop offset="65%"  stop-color="#e8d48a" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#b8900a" stop-opacity="1"/>
-      <animateTransform
-        attributeName="gradientTransform"
-        type="translate"
-        from="-32 0"
-        to="64 0"
-        dur="2.4s"
-        repeatCount="indefinite"
-      />
+      <stop offset="0%"   stop-color="#6E5316"/>
+      <stop offset="25%"  stop-color="#A88326"/>
+      <stop offset="50%"  stop-color="#C49A33"/>
+      <stop offset="75%"  stop-color="#A88326"/>
+      <stop offset="100%" stop-color="#866618"/>
     </linearGradient>
   </defs>
 
-  <!-- R base in gold -->
+  <!-- white tile; deep gold so the R holds contrast against it -->
+  <rect width="32" height="32" rx="6" fill="#FFFFFF"/>
+
+  <!-- R in gold -->
   <text
     x="16"
     y="26"
@@ -42,18 +30,5 @@
     font-style="normal"
     font-weight="700"
     fill="url(#goldBase)"
-  >R</text>
-
-  <!-- R shimmer overlay -->
-  <text
-    x="16"
-    y="26"
-    text-anchor="middle"
-    font-family="'BodoniModa', 'Bodoni Moda', 'Bodoni MT', 'Didot', 'GFS Didot', 'Times New Roman', serif"
-    font-size="27"
-    font-style="normal"
-    font-weight="700"
-    fill="url(#shimmer)"
-    opacity="0.75"
   >R</text>
 </svg>
