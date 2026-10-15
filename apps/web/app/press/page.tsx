@@ -30,9 +30,9 @@ export default function PressPage() {
       </div>
 
       <section className="mb-16">
-        <h2 className="text-2xl font-semibold tracking-tight">JPMorganChase: Immersive Tech II</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">JPMorganChase: Immersive Tech</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Rokia&apos;s team, Immersive Tech II, featured in JPMorganChase&apos;s video on the
+          Rokia&apos;s team, Immersive Tech, featured in JPMorganChase&apos;s video on the
           technologists shaping AI and virtual reality. Posted {formatDate(jpmcFeature.date)}.{' '}
           <a
             href={jpmcFeature.url}

@@ -126,7 +126,7 @@ export const campaignVideos: CampaignVideo[] = [
   },
 ]
 
-// JPMorganChase LinkedIn video featuring Rokia's team, Immersive Tech II; details from the post's own VideoObject
+// JPMorganChase LinkedIn video featuring Rokia's team, Immersive Tech; details from the post's own VideoObject
 export const jpmcFeature = {
   title: 'JPMorganChase: From artificial intelligence to virtual reality',
   url: 'https://www.linkedin.com/posts/from-artificial-intelligence-to-virtual-reality-ugcPost-7234590697306116097-wA3t/',
@@ -169,7 +169,7 @@ export const pressJsonLd = [
     '@type': 'VideoObject',
     name: jpmcFeature.title,
     description:
-      "JPMorganChase video on its technologists shaping AI and virtual reality, featuring Rokia Sissoko's team, Immersive Tech II.",
+      "JPMorganChase video on its technologists shaping AI and virtual reality, featuring Rokia Sissoko's team, Immersive Tech.",
     url: jpmcFeature.url,
     embedUrl: jpmcFeature.embedUrl,
     thumbnailUrl: jpmcFeature.thumbnailUrl,
