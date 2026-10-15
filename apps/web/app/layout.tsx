@@ -52,6 +52,24 @@ const jsonLd = {
         'https://www.instagram.com/rokiatech/',
         'https://www.tiktok.com/@rokiatech',
         'https://www.youtube.com/@rokiatech',
+        'https://linktr.ee/rokiatech',
+      ],
+      // press coverage about Rokia, as opposed to her own profiles above
+      subjectOf: [
+        {
+          '@type': 'NewsArticle',
+          headline: "These Kids From The Bronx Inspired Verizon's Black History Ad",
+          url: 'https://www.nbcnews.com/news/nbcblk/these-kids-bronx-inspired-verizons-black-history-ad-n297806',
+          datePublished: '2015-02-01',
+          publisher: { '@type': 'Organization', name: 'NBC News' },
+        },
+        {
+          '@type': 'NewsArticle',
+          headline: 'Bronx Kids Featured in Verizon Black History Month Commercial',
+          url: 'https://covchurch.org/2015/02/02/bronx-kids-featured-in-verizon-black-history-month-commercial/',
+          datePublished: '2015-02-03',
+          publisher: { '@type': 'Organization', name: 'The Evangelical Covenant Church' },
+        },
       ],
     },
     {
