@@ -133,6 +133,7 @@ const jsonLd = {
       '@type': 'Person',
       '@id': `${SITE_URL}/#person`,
       name: 'Rokia Sissoko',
+      alternateName: 'Rokiatou Sissoko',
       url: SITE_URL,
       image: `${SITE_URL}/rokia-cover.jpg`,
       jobTitle: 'Software Engineer',
