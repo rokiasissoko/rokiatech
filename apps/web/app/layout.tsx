@@ -89,6 +89,12 @@ const PRESS = [
     'https://hellobeautiful.com/2768368/kids-from-the-bronx-star-in-verizon-black-history-month-commercials/',
   ],
   [
+    '2015-02-06',
+    'Bronx Times (print edition)',
+    'Bronx students are face of Verizon app',
+    'https://www.bxtimes.com/wp-content/uploads/assets/pdf/2015_06bxt.pdf',
+  ],
+  [
     '2015-02-07',
     'Bronx Times',
     'Bronx students are face of Verizon campaign',
