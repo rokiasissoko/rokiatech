@@ -119,6 +119,7 @@ const VERIZON_AD = {
   '@type': 'CreativeWork',
   name: "Verizon TV Spot, 'Create History: Assembly'",
   url: 'https://www.ispot.tv/ad/7xoi/verizon-create-history-assembly',
+  datePublished: '2015-02-02',
   description:
     'Verizon Black History Month commercial featuring the six Bronx Academy of Promise students who won the Verizon Innovative App Challenge.',
   sponsor: { '@type': 'Organization', name: 'Verizon' },
