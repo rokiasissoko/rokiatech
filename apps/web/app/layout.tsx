@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="mx-auto w-full max-w-5xl flex-1 px-6">{children}</main>
         <footer className="mx-auto w-full max-w-5xl border-t px-6 py-8 mt-24">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Rokia Sissoko. Built with Next.js & Tailwind.
+            © {new Date().getFullYear()} Rokia Sissoko · rokiatech.co
           </p>
         </footer>
         <Analytics />

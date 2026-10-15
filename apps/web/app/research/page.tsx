@@ -35,8 +35,8 @@ export default async function ResearchPage() {
                 <div className="flex items-start justify-between gap-2">
                   <CardTitle className="text-lg">{item.title}</CardTitle>
                   <Badge
-                    variant={item.status === 'published' ? 'default' : 'secondary'}
-                    className="shrink-0 capitalize"
+                    variant={item.status === 'published' ? 'outline' : 'secondary'}
+                    className={`shrink-0 capitalize ${item.status === 'published' ? 'gold-shimmer gold-border' : ''}`}
                   >
                     {item.status.replace('-', ' ')}
                   </Badge>
@@ -58,7 +58,7 @@ export default async function ResearchPage() {
                     href={item.links.paper}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+                    className="gold-shimmer flex items-center gap-1.5 text-sm"
                   >
                     <ExternalLink size={14} />
                     Read paper

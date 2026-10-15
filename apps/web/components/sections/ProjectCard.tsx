@@ -24,7 +24,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         <CardHeader>
           <div className="flex items-start justify-between gap-2">
             <CardTitle className="text-lg">{project.title}</CardTitle>
-            <span className="shrink-0 text-sm text-muted-foreground">{project.year}</span>
+            <span className="gold-shimmer shrink-0 text-sm">{project.year}</span>
           </div>
         </CardHeader>
         <CardContent>
@@ -44,7 +44,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+                className="gold-shimmer flex items-center gap-1.5 text-sm"
               >
                 <Code2 size={14} />
                 Code
@@ -55,7 +55,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+                className="gold-shimmer flex items-center gap-1.5 text-sm"
               >
                 <ExternalLink size={14} />
                 Demo
