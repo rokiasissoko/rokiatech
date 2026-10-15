@@ -125,6 +125,38 @@ const VERIZON_AD = {
   sponsor: { '@type': 'Organization', name: 'Verizon' },
 }
 
+// Vimeo cuts of the same campaign featuring Rokia; thumbnails and durations from Vimeo oEmbed
+const VIDEOS = [
+  [
+    '118177814',
+    "Verizon 'Create History: Assembly' (30s spot)",
+    'PT30S',
+    '505150468-dbc536acd4426eeaebb24ab8a3ab36799b054c889db8fe5fc98b20915c68b436',
+  ],
+  [
+    '118177812',
+    'Verizon Create History: Opening Doors',
+    'PT1M59S',
+    '505150472-21e7cda7b3a365c8846d3b93edcaa38079f66b685f500d3eebee154632b3c386',
+  ],
+  [
+    '118177813',
+    'Verizon Create History: How We Built an App',
+    'PT2M12S',
+    '505150474-ea87de8b05bb5c47fae6def0f57bd2e24a7843f6412e3e8bd4cc5d3f63f01737',
+  ],
+].map(([id, name, duration, thumb]) => ({
+  '@type': 'VideoObject',
+  name,
+  description:
+    'From Verizon\'s 2015 Black History Month "Create History" campaign featuring Bronx Academy of Promise students, including Rokia Sissoko.',
+  url: `https://vimeo.com/${id}`,
+  embedUrl: `https://player.vimeo.com/video/${id}`,
+  thumbnailUrl: `https://i.vimeocdn.com/video/${thumb}-d_640`,
+  uploadDate: '2015-01-29',
+  duration,
+}))
+
 // schema.org graph so search engines tie the name "Rokia Sissoko" and the "rokiatech" brand to this site
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -148,7 +180,7 @@ const jsonLd = {
         'https://www.youtube.com/@rokiatech',
         'https://linktr.ee/rokiatech',
       ],
-      subjectOf: [...PRESS, VERIZON_AD],
+      subjectOf: [...PRESS, VERIZON_AD, ...VIDEOS],
     },
     {
       '@type': 'WebSite',
