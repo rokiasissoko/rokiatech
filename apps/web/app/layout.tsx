@@ -41,6 +41,12 @@ const PRESS = [
     'https://www.nydailynews.com/2012/11/29/once-failing-bronx-charter-school-rings-in-this-school-year-with-smartphones-and-higher-scores/',
   ],
   [
+    '2013-03-20',
+    'New York Daily News',
+    'Mott Haven 6th graders take top honors in national app design contest; students use game to teach math',
+    'https://www.nydailynews.com/2013/03/20/mott-haven-6th-graders-take-top-honors-in-national-app-design-contest-students-use-game-to-teach-math/',
+  ],
+  [
     '2015-02-01',
     'NBC News',
     "These Kids From The Bronx Inspired Verizon's Black History Ad",
@@ -65,16 +71,34 @@ const PRESS = [
     'https://www.theroot.com/we-cant-sit-back-and-watch-history-weve-got-to-create-it',
   ],
   [
+    '2015-02-04',
+    'DNAinfo New York',
+    'South Bronx Students Starring in National Verizon Wireless Ad Campaign',
+    'https://www.dnainfo.com/new-york/20150204/high-bridge/south-bronx-students-starring-national-verizon-wireless-ad-campaign',
+  ],
+  [
     '2015-02-06',
     'MyPraise 102.5 Atlanta',
     'Beautiful News: 6 8th Graders Of Color From The Bronx To Star In Two Inspiring Verizon Commercials',
     'https://mypraiseatl.com/1556880/beautiful-news-6-8th-graders-of-color-from-the-bronx-to-star-in-two-inspiring-verizon-commercials-video/',
   ],
   [
+    '2015-02-06',
+    'Hello Beautiful',
+    'Beautiful News: Six 8th Graders Of Color From The Bronx To Star In Two Inspiring Verizon Commercials',
+    'https://hellobeautiful.com/2768368/kids-from-the-bronx-star-in-verizon-black-history-month-commercials/',
+  ],
+  [
     '2015-02-07',
     'Bronx Times',
     'Bronx students are face of Verizon campaign',
     'https://www.bxtimes.com/bronx-students-are-face-of-verizon-campaign/',
+  ],
+  [
+    '2015-02-17',
+    'UrbanGeekz',
+    'Bronx kids design Math App to become faces of major ads campaign',
+    'https://urbangeekz.com/2015/02/bronx-kids-design-award-winning-math-app-become-faces-major-ads-campaign/',
   ],
 ].map(([datePublished, publisher, headline, url]) => ({
   '@type': 'NewsArticle',
