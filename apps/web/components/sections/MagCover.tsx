@@ -48,19 +48,22 @@ export function MagCover() {
 
         {/* masthead */}
         <header className="masthead reveal">
+          {/* the stylized letters read as "ROTECHKIA", so give readers and crawlers the real name */}
           <h1 className="mh-word">
-            <span>R</span>
-            <span className="mh-o">
-              O<span className="mh-tech">TECH</span>
+            <span className="sr-only">Rokia Sissoko · rokiatech</span>
+            <span aria-hidden="true">
+              <span>R</span>
+              <span className="mh-o">
+                O<span className="mh-tech">TECH</span>
+              </span>
+              <span>KIA</span>
             </span>
-            <span>KIA</span>
           </h1>
           <div className="mh-strap">
             <span className="rule" />
             <span className="mh-issue">SOFTWARE ENGINEER · EDTECH RESEARCH</span>
             <span className="rule" />
           </div>
-          <p className="mh-deck">Rokia Sissoko is a software engineer and researcher.</p>
         </header>
 
         {/* coverlines */}
