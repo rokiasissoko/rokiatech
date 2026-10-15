@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { PasswordGate } from '@/components/ui/PasswordGate'
 import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { getResearch } from '@/lib/notion'
@@ -17,7 +16,6 @@ export default async function ResearchPage() {
   const items = await getResearch()
 
   return (
-    <PasswordGate>
     <div className="py-16">
       <div className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight">Research</h1>
@@ -72,6 +70,5 @@ export default async function ResearchPage() {
         </div>
       )}
     </div>
-    </PasswordGate>
   )
 }
