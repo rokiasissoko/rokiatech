@@ -126,6 +126,17 @@ export const campaignVideos: CampaignVideo[] = [
   },
 ]
 
+// JPMorganChase LinkedIn video featuring Rokia's team, Immersive Tech II; details from the post's own VideoObject
+export const jpmcFeature = {
+  title: 'JPMorganChase: From artificial intelligence to virtual reality',
+  url: 'https://www.linkedin.com/posts/from-artificial-intelligence-to-virtual-reality-ugcPost-7234590697306116097-wA3t/',
+  embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:activity:7234590698224709633?compact=true',
+  thumbnailUrl:
+    'https://media.licdn.com/dms/image/v2/D4D10AQFgIQL4QfGR-A/videocover-high/videocover-high/0/1724860814534?e=2147483647&v=beta&t=aDUYwJ_7scmx4V3FtZ-r-1Z7SZha5_zJoYnZdb6-Q-0',
+  date: '2024-08-28',
+  duration: 'PT30S',
+}
+
 // schema.org items for the Person's subjectOf
 export const pressJsonLd = [
   ...pressArticles.map(({ date, outlet, headline, url }) => ({
@@ -154,4 +165,16 @@ export const pressJsonLd = [
     uploadDate: '2015-01-29',
     duration,
   })),
+  {
+    '@type': 'VideoObject',
+    name: jpmcFeature.title,
+    description:
+      "JPMorganChase video on its technologists shaping AI and virtual reality, featuring Rokia Sissoko's team, Immersive Tech II.",
+    url: jpmcFeature.url,
+    embedUrl: jpmcFeature.embedUrl,
+    thumbnailUrl: jpmcFeature.thumbnailUrl,
+    uploadDate: jpmcFeature.date,
+    duration: jpmcFeature.duration,
+    publisher: { '@type': 'Organization', name: 'JPMorganChase' },
+  },
 ]

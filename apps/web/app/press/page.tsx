@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { campaignVideos, pressArticles, verizonAd } from '@/lib/press'
+import { campaignVideos, jpmcFeature, pressArticles, verizonAd } from '@/lib/press'
 
 export const metadata: Metadata = {
   title: 'Press',
@@ -28,6 +28,33 @@ export default function PressPage() {
           campaign.
         </p>
       </div>
+
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold tracking-tight">JPMorganChase: Immersive Tech II</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Rokia&apos;s team, Immersive Tech II, featured in JPMorganChase&apos;s video on the
+          technologists shaping AI and virtual reality. Posted {formatDate(jpmcFeature.date)}.{' '}
+          <a
+            href={jpmcFeature.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gold-shimmer"
+          >
+            See the post on LinkedIn
+          </a>
+        </p>
+        <figure className="mt-6 max-w-md">
+          <div className="overflow-hidden rounded-lg border bg-muted">
+            <iframe
+              src={jpmcFeature.embedUrl}
+              title={jpmcFeature.title}
+              loading="lazy"
+              allow="fullscreen"
+              className="h-[540px] w-full"
+            />
+          </div>
+        </figure>
+      </section>
 
       <section className="mb-16">
         <h2 className="text-2xl font-semibold tracking-tight">
