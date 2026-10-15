@@ -114,6 +114,16 @@ const PRESS = [
   publisher: { '@type': 'Organization', name: publisher },
 }))
 
+// the Verizon "Create History" TV spot the press above covers
+const VERIZON_AD = {
+  '@type': 'CreativeWork',
+  name: "Verizon TV Spot, 'Create History: Assembly'",
+  url: 'https://www.ispot.tv/ad/7xoi/verizon-create-history-assembly',
+  description:
+    'Verizon Black History Month commercial featuring the six Bronx Academy of Promise students who won the Verizon Innovative App Challenge.',
+  sponsor: { '@type': 'Organization', name: 'Verizon' },
+}
+
 // schema.org graph so search engines tie the name "Rokia Sissoko" and the "rokiatech" brand to this site
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -136,7 +146,7 @@ const jsonLd = {
         'https://www.youtube.com/@rokiatech',
         'https://linktr.ee/rokiatech',
       ],
-      subjectOf: PRESS,
+      subjectOf: [...PRESS, VERIZON_AD],
     },
     {
       '@type': 'WebSite',
