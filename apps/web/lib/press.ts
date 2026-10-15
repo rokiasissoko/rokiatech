@@ -43,6 +43,12 @@ export const pressArticles: PressArticle[] = [
     url: 'https://www.theroot.com/we-cant-sit-back-and-watch-history-weve-got-to-create-it',
   },
   {
+    date: '2015-02-19',
+    outlet: 'Tech Times',
+    headline: 'Bronx Students Create Math App, Plus Five Black History Apps You Should Check Out',
+    url: 'https://www.techtimes.com/articles/33513/20150219/black-history-apps-bronx.htm',
+  },
+  {
     date: '2015-02-04',
     outlet: 'DNAinfo New York',
     headline: 'South Bronx Students Starring in National Verizon Wireless Ad Campaign',
