@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Selected projects and case studies.',
 }
 
-export const revalidate = 3600
+export const revalidate = 600 // fallback; /api/revalidate refreshes on Notion changes
 
 export default async function WorkPage() {
   const projects = await getProjects()
