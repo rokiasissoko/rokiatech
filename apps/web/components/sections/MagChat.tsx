@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import { track } from '@vercel/analytics'
 
 const SUGGESTIONS = [
   'What do you build?',
@@ -33,6 +34,10 @@ export function MagChat({ open, onClose }: Props) {
   }, [msgs, busy])
 
   useEffect(() => {
+    if (open) track('Chat Opened')
+  }, [open])
+
+  useEffect(() => {
     if (open) {
       requestAnimationFrame(() => inputRef.current?.focus())
     }
@@ -46,6 +51,12 @@ export function MagChat({ open, onClose }: Props) {
   async function send(text?: string) {
     const q = (text ?? input).trim()
     if (!q || busy) return
+    // Log only the suggestion label, never free-typed text.
+    track('Chat Question', {
+      source: text ? 'suggestion' : 'typed',
+      suggestion: text ?? '',
+      turn: msgs.filter((m) => m.role === 'user').length + 1,
+    })
     setInput('')
     const next: Msg[] = [...msgs, { role: 'user', content: q }]
     setMsgs(next)

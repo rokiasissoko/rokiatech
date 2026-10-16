@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { track } from '@vercel/analytics'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
@@ -30,6 +31,7 @@ export default function ContactPage() {
 
   async function onSubmit(data: ContactFormPayload) {
     setStatus('sending')
+    track('Contact Submitted')
     try {
       const res = await fetch(`${API_URL}/contact`, {
         method: 'POST',
@@ -37,12 +39,15 @@ export default function ContactPage() {
         body: JSON.stringify(data),
       })
       if (res.ok) {
+        track('Contact Sent')
         setStatus('sent')
         reset()
       } else {
+        track('Contact Failed', { status: res.status })
         setStatus('error')
       }
     } catch {
+      track('Contact Failed', { status: 'network' })
       setStatus('error')
     }
   }
