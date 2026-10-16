@@ -11,3 +11,9 @@ updates:
           - "eslint*"
           - "typescript"
           - "prettier"
+    ignore:
+      # TypeScript 7 (the Go rewrite) drops the JS compiler API that
+      # `next build` and typescript-eslint load. Remove once Next.js
+      # supports it.
+      - dependency-name: "typescript"
+        versions: [">=7.0.0"]
