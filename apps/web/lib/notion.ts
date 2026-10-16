@@ -7,12 +7,31 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY })
 const PROJECTS_DATABASE_ID = process.env.NOTION_PROJECTS_DB_ID ?? ''
 const RESEARCH_DATABASE_ID = process.env.NOTION_RESEARCH_DB_ID ?? ''
 
+// Notion API v5 queries data sources, not databases. Resolve each database's
+// first data source once, so the env vars can keep holding database IDs.
+const dataSourceIds = new Map<string, Promise<string>>()
+
+function getDataSourceId(databaseId: string): Promise<string> {
+  let id = dataSourceIds.get(databaseId)
+  if (!id) {
+    id = notion.databases.retrieve({ database_id: databaseId }).then((db: any) => {
+      const sourceId = db.data_sources?.[0]?.id
+      if (!sourceId) throw new Error(`Database ${databaseId} has no data sources`)
+      return sourceId
+    })
+    // Don't cache a failure; retry on the next request.
+    id.catch(() => dataSourceIds.delete(databaseId))
+    dataSourceIds.set(databaseId, id)
+  }
+  return id
+}
+
 export async function getProjects(): Promise<Project[]> {
   if (!PROJECTS_DATABASE_ID || !process.env.NOTION_API_KEY) return []
 
   try {
-    const response = await notion.databases.query({
-      database_id: PROJECTS_DATABASE_ID,
+    const response = await notion.dataSources.query({
+      data_source_id: await getDataSourceId(PROJECTS_DATABASE_ID),
       filter: { property: 'Published', checkbox: { equals: true } },
       sorts: [{ property: 'Year', direction: 'descending' }],
     })
@@ -42,8 +61,8 @@ export async function getResearch(): Promise<ResearchItem[]> {
   if (!RESEARCH_DATABASE_ID || !process.env.NOTION_API_KEY) return []
 
   try {
-    const response = await notion.databases.query({
-      database_id: RESEARCH_DATABASE_ID,
+    const response = await notion.dataSources.query({
+      data_source_id: await getDataSourceId(RESEARCH_DATABASE_ID),
       filter: { property: 'Published', checkbox: { equals: true } },
       sorts: [{ property: 'Year', direction: 'descending' }],
     })

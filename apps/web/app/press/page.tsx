@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import { campaignVideos, jpmcFeature, pressArticles, verizonAd } from '@/lib/press'
+import { campaignVideos, jpmcFeature, pressArticles, pressVideoJsonLd, verizonAd } from '@/lib/press'
 import { TrackedLink } from '@/components/ui/TrackedLink'
 
 export const metadata: Metadata = {
   title: 'Press',
   description:
     "Press coverage of Rokia Sissoko, from the Verizon Innovative App Challenge to Verizon's 2015 Create History campaign.",
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': pressVideoJsonLd.map((video) => ({
+    ...video,
+    about: { '@id': 'https://rokiatech.co/#person' },
+  })),
 }
 
 function formatDate(date: string) {
@@ -20,6 +28,10 @@ function formatDate(date: string) {
 export default function PressPage() {
   return (
     <div className="py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
       <div className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight">Rokia Sissoko in the Press</h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">
