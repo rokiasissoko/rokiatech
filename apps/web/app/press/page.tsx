@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { campaignVideos, jpmcFeature, pressArticles, verizonAd } from '@/lib/press'
+import { TrackedLink } from '@/components/ui/TrackedLink'
 
 export const metadata: Metadata = {
   title: 'Press',
@@ -43,14 +44,16 @@ export default function PressPage() {
         <p className="mt-2 text-sm text-muted-foreground">
           Rokia&apos;s team, Immersive Tech Products, featured in JPMorganChase&apos;s video on the
           technologists shaping AI and virtual reality. Posted {formatDate(jpmcFeature.date)}.{' '}
-          <a
+          <TrackedLink
+            event="Press Link Click"
+            data={{ item: 'jpmc-linkedin' }}
             href={jpmcFeature.url}
             target="_blank"
             rel="noopener noreferrer"
             className="gold-shimmer"
           >
             See the post on LinkedIn
-          </a>
+          </TrackedLink>
         </p>
         <figure className="mt-6 max-w-md">
           <div className="overflow-hidden rounded-lg border bg-muted">
@@ -71,14 +74,16 @@ export default function PressPage() {
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Released {formatDate(verizonAd.date)}.{' '}
-          <a
+          <TrackedLink
+            event="Press Link Click"
+            data={{ item: 'verizon-ispot' }}
             href={verizonAd.url}
             target="_blank"
             rel="noopener noreferrer"
             className="gold-shimmer"
           >
             See the TV spot on iSpot
-          </a>
+          </TrackedLink>
         </p>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {campaignVideos.map(({ id, title }) => (
@@ -108,14 +113,16 @@ export default function PressPage() {
                 {' · '}
                 <time dateTime={date}>{formatDate(date)}</time>
               </p>
-              <a
+              <TrackedLink
+                event="Press Link Click"
+                data={{ item: outlet }}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1 block underline-offset-4 hover:underline"
               >
                 {headline}
-              </a>
+              </TrackedLink>
             </li>
           ))}
         </ol>

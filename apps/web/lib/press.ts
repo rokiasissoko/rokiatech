@@ -110,7 +110,9 @@ export const verizonAd = {
     'Verizon Black History Month commercial featuring the six Bronx Academy of Promise students who won the Verizon Innovative App Challenge.',
 }
 
-// Vimeo cuts of the same campaign featuring Rokia; thumbnails and durations from Vimeo oEmbed
+// Vimeo cuts of the same campaign featuring Rokia; thumbnails, durations and upload time from Vimeo oEmbed
+const campaignUploadDate = '2015-01-29T17:15:07-05:00'
+
 export const campaignVideos: CampaignVideo[] = [
   {
     id: '118177814',
@@ -140,6 +142,8 @@ export const jpmcFeature = {
   thumbnailUrl:
     'https://media.licdn.com/dms/image/v2/D4D10AQFgIQL4QfGR-A/videocover-high/videocover-high/0/1724860814534?e=2147483647&v=beta&t=aDUYwJ_7scmx4V3FtZ-r-1Z7SZha5_zJoYnZdb6-Q-0',
   date: '2024-08-28',
+  // Google needs a full datetime with timezone; taken from the video cover's upload timestamp
+  uploadDate: '2024-08-28T16:00:14Z',
   duration: 'PT30S',
 }
 
@@ -168,7 +172,7 @@ export const pressJsonLd = [
     url: `https://vimeo.com/${id}`,
     embedUrl: `https://player.vimeo.com/video/${id}`,
     thumbnailUrl: `https://i.vimeocdn.com/video/${thumb}-d_640`,
-    uploadDate: '2015-01-29',
+    uploadDate: campaignUploadDate,
     duration,
   })),
   {
@@ -179,7 +183,7 @@ export const pressJsonLd = [
     url: jpmcFeature.url,
     embedUrl: jpmcFeature.embedUrl,
     thumbnailUrl: jpmcFeature.thumbnailUrl,
-    uploadDate: jpmcFeature.date,
+    uploadDate: jpmcFeature.uploadDate,
     duration: jpmcFeature.duration,
     publisher: { '@type': 'Organization', name: 'JPMorganChase' },
   },

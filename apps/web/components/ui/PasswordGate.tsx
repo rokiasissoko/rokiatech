@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { track } from '@vercel/analytics'
 
 const SESSION_KEY = 'rokiatech_unlocked'
 
@@ -40,9 +41,11 @@ export function PasswordGate({ children }: { children: React.ReactNode }) {
       const data = await res.json()
 
       if (data.ok) {
+        track('Gate Unlocked', { path: window.location.pathname })
         sessionStorage.setItem(SESSION_KEY, 'true')
         setUnlocked(true)
       } else {
+        track('Gate Wrong Password', { path: window.location.pathname })
         setError('Wrong password — try again.')
         setPassword('')
         inputRef.current?.focus()
