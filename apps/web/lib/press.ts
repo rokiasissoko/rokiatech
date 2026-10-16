@@ -147,7 +147,7 @@ export const jpmcFeature = {
   duration: 'PT30S',
 }
 
-// schema.org items for the Person's subjectOf
+// schema.org items for the Person's subjectOf; rendered site-wide from app/layout.tsx
 export const pressJsonLd = [
   ...pressArticles.map(({ date, outlet, headline, url }) => ({
     '@type': 'NewsArticle',
@@ -164,6 +164,11 @@ export const pressJsonLd = [
     description: verizonAd.description,
     sponsor: { '@type': 'Organization', name: 'Verizon' },
   },
+]
+
+// VideoObjects for the videos embedded on /press; kept off the site-wide graph so only the page
+// that actually shows them declares them
+export const pressVideoJsonLd = [
   ...campaignVideos.map(({ id, title, duration, thumb }) => ({
     '@type': 'VideoObject',
     name: title,
