@@ -109,8 +109,8 @@ export function MagCover() {
             <span className="cb-dot cb-desk" />
             <Link className="cb-desk" href="/research">RESEARCH</Link>
             <span className="cb-dot cb-desk" />
-            <Link className="cb-phone" href="/press">PRESS</Link>
-            <span className="cb-dot cb-phone" />
+            <Link href="/press">PRESS</Link>
+            <span className="cb-dot" />
             <Link href="/contact">CONTACT</Link>
           </nav>
         </div>

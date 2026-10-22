@@ -219,11 +219,6 @@ body {
   opacity: .9;
 }
 
-/* footer links shown only on phones (see the max-width: 600px block) */
-.cb-phone {
-  display: none;
-}
-
 .masthead {
   position: absolute;
   top: 2.6%;
@@ -526,7 +521,6 @@ body {
   .cb-l { display: none; }
   .cb-nav { gap: 12px; letter-spacing: .16em; }
   .cb-desk { display: none; }
-  .cb-phone { display: block; }
 
   .cl,
   .cl-cta {
