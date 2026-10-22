@@ -5,6 +5,7 @@ import { ProjectCard } from '@/components/sections/ProjectCard'
 export const metadata: Metadata = {
   title: 'Work',
   description: 'Selected projects and case studies.',
+  alternates: { canonical: '/work' },
 }
 
 export const revalidate = 600 // fallback; /api/revalidate refreshes on Notion changes

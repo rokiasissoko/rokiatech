@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
-import { campaignVideos, jpmcFeature, pressArticles, verizonAd } from '@/lib/press'
+import Link from 'next/link'
+import { campaignVideos, jpmcFeature, pressArticles, verizonAd, videoWatchPath } from '@/lib/press'
 import { TrackedLink } from '@/components/ui/TrackedLink'
 
 export const metadata: Metadata = {
   title: 'Press',
   description:
     "Press coverage of Rokia Sissoko, from the Verizon Innovative App Challenge to Verizon's 2015 Create History campaign.",
+  alternates: { canonical: '/press' },
 }
 
 function formatDate(date: string) {
@@ -54,6 +56,10 @@ export default function PressPage() {
           >
             See the post on LinkedIn
           </TrackedLink>
+          {' · '}
+          <Link href={videoWatchPath(jpmcFeature.slug)} className="underline-offset-4 hover:underline">
+            Watch page
+          </Link>
         </p>
         <figure className="mt-6 max-w-md">
           <div className="overflow-hidden rounded-lg border bg-muted">
@@ -86,7 +92,7 @@ export default function PressPage() {
           </TrackedLink>
         </p>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {campaignVideos.map(({ id, title }) => (
+          {campaignVideos.map(({ id, slug, title }) => (
             <figure key={id}>
               <div className="aspect-video overflow-hidden rounded-lg border bg-muted">
                 <iframe
@@ -97,7 +103,11 @@ export default function PressPage() {
                   className="h-full w-full"
                 />
               </div>
-              <figcaption className="mt-2 text-sm">{title}</figcaption>
+              <figcaption className="mt-2 text-sm">
+                <Link href={videoWatchPath(slug)} className="underline-offset-4 hover:underline">
+                  {title}
+                </Link>
+              </figcaption>
             </figure>
           ))}
         </div>

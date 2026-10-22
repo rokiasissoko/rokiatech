@@ -8,6 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 export const metadata: Metadata = {
   title: 'Research',
   description: 'Graduate research in XR, social skills development, and culturally responsive learning.',
+  alternates: { canonical: '/research' },
 }
 
 export const revalidate = 600 // fallback; /api/revalidate refreshes on Notion changes

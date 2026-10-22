@@ -9,6 +9,7 @@ export type PressArticle = {
 
 export type CampaignVideo = {
   id: string
+  slug: string
   title: string
   duration: string
   thumb: string
@@ -116,18 +117,21 @@ const campaignUploadDate = '2015-01-29T17:15:07-05:00'
 export const campaignVideos: CampaignVideo[] = [
   {
     id: '118177814',
+    slug: 'verizon-create-history-assembly',
     title: "Verizon 'Create History: Assembly' (30s spot)",
     duration: 'PT30S',
     thumb: '505150468-dbc536acd4426eeaebb24ab8a3ab36799b054c889db8fe5fc98b20915c68b436',
   },
   {
     id: '118177812',
+    slug: 'verizon-create-history-opening-doors',
     title: 'Verizon Create History: Opening Doors',
     duration: 'PT1M59S',
     thumb: '505150472-21e7cda7b3a365c8846d3b93edcaa38079f66b685f500d3eebee154632b3c386',
   },
   {
     id: '118177813',
+    slug: 'verizon-create-history-how-we-built-an-app',
     title: 'Verizon Create History: How We Built an App',
     duration: 'PT2M12S',
     thumb: '505150474-ea87de8b05bb5c47fae6def0f57bd2e24a7843f6412e3e8bd4cc5d3f63f01737',
@@ -136,6 +140,7 @@ export const campaignVideos: CampaignVideo[] = [
 
 // JPMorganChase LinkedIn video featuring Rokia's team, Immersive Tech Products; details from the post's own VideoObject
 export const jpmcFeature = {
+  slug: 'jpmorganchase-ai-to-virtual-reality',
   title: 'JPMorganChase: From artificial intelligence to virtual reality',
   url: 'https://www.linkedin.com/posts/from-artificial-intelligence-to-virtual-reality-ugcPost-7234590697306116097-wA3t/',
   embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:activity:7234590698224709633?compact=true',
@@ -147,7 +152,7 @@ export const jpmcFeature = {
   duration: 'PT30S',
 }
 
-// schema.org items for the Person's subjectOf
+// schema.org items for the Person's subjectOf; rendered site-wide from app/layout.tsx
 export const pressJsonLd = [
   ...pressArticles.map(({ date, outlet, headline, url }) => ({
     '@type': 'NewsArticle',
@@ -164,20 +169,28 @@ export const pressJsonLd = [
     description: verizonAd.description,
     sponsor: { '@type': 'Organization', name: 'Verizon' },
   },
-  ...campaignVideos.map(({ id, title, duration, thumb }) => ({
-    '@type': 'VideoObject',
-    name: title,
-    description:
-      'From Verizon\'s 2015 Black History Month "Create History" campaign featuring Bronx Academy of Promise students, including Rokia Sissoko.',
-    url: `https://vimeo.com/${id}`,
-    embedUrl: `https://player.vimeo.com/video/${id}`,
-    thumbnailUrl: `https://i.vimeocdn.com/video/${thumb}-d_640`,
-    uploadDate: campaignUploadDate,
-    duration,
-  })),
+]
+
+export type PressVideo = {
+  slug: string
+  title: string
+  description: string
+  url: string
+  embedUrl: string
+  thumbnailUrl: string
+  uploadDate: string
+  duration: string
+  publisher: string
+  // Vimeo cuts are 16:9; the LinkedIn embed is a tall feed card
+  frame: 'video' | 'feed'
+}
+
+// every video Rokia appears in; each gets its own watch page at /press/videos/<slug> so Google
+// can index it (a page full of embeds isn't a watch page)
+export const pressVideos: PressVideo[] = [
   {
-    '@type': 'VideoObject',
-    name: jpmcFeature.title,
+    slug: jpmcFeature.slug,
+    title: jpmcFeature.title,
     description:
       "JPMorganChase video on its technologists shaping AI and virtual reality, featuring Rokia Sissoko's team, Immersive Tech Products.",
     url: jpmcFeature.url,
@@ -185,6 +198,43 @@ export const pressJsonLd = [
     thumbnailUrl: jpmcFeature.thumbnailUrl,
     uploadDate: jpmcFeature.uploadDate,
     duration: jpmcFeature.duration,
-    publisher: { '@type': 'Organization', name: 'JPMorganChase' },
+    publisher: 'JPMorganChase',
+    frame: 'feed',
   },
+  ...campaignVideos.map(({ id, slug, title, duration, thumb }) => ({
+    slug,
+    title,
+    description:
+      'From Verizon\'s 2015 Black History Month "Create History" campaign featuring Bronx Academy of Promise students, including Rokia Sissoko.',
+    url: `https://vimeo.com/${id}`,
+    embedUrl: `https://player.vimeo.com/video/${id}?dnt=1`,
+    thumbnailUrl: `https://i.vimeocdn.com/video/${thumb}-d_640`,
+    uploadDate: campaignUploadDate,
+    duration,
+    publisher: 'Verizon',
+    frame: 'video' as const,
+  })),
 ]
+
+export function getPressVideo(slug: string) {
+  return pressVideos.find((video) => video.slug === slug)
+}
+
+export const videoWatchPath = (slug: string) => `/press/videos/${slug}`
+
+// schema.org VideoObject for a watch page; only the watch page itself declares it
+export function videoJsonLd(video: PressVideo, pageUrl: string) {
+  return {
+    '@type': 'VideoObject',
+    '@id': `${pageUrl}#video`,
+    name: video.title,
+    description: video.description,
+    url: pageUrl,
+    embedUrl: video.embedUrl,
+    thumbnailUrl: video.thumbnailUrl,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    publisher: { '@type': 'Organization', name: video.publisher },
+    about: { '@id': 'https://rokiatech.co/#person' },
+  }
+}
