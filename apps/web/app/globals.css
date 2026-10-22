@@ -503,9 +503,69 @@ body {
 
 /* phones: the URL collides with the nav, so drop it and give the nav the full width */
 @media (max-width: 600px) {
-  .cover-bottom { justify-content: center; padding: 14px 16px 16px; }
+  /* coverlines and nav are printed straight onto the photo here, like a real
+     cover; a scrim darkens the lower half so cream type reads over hair and jacket */
+  .cover-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(22, 15, 9, 0) 38%, rgba(22, 15, 9, .5) 62%, rgba(22, 15, 9, .86) 100%);
+  }
+  .cover-bottom {
+    justify-content: center;
+    padding: 14px 16px 18px;
+    color: #FBF7F1;
+  }
   .cb-l { display: none; }
   .cb-nav { gap: 12px; letter-spacing: .16em; }
+  .cb-desk { display: none; }
+
+  .cl,
+  .cl-cta {
+    --row: 112px;
+    --base: 64px;
+    left: 18px;
+    right: auto;
+    top: auto;
+    width: auto;
+    max-width: 66vw;
+    align-items: flex-start;
+    text-align: left;
+    gap: 6px;
+    padding: 0;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, .45);
+  }
+  /* short gold rule above each coverline */
+  .cl::before {
+    content: "";
+    align-self: flex-start;
+    width: 26px;
+    height: 2px;
+    margin-bottom: 4px;
+    background: var(--gold);
+  }
+  .cl:hover,
+  .cl-cta:hover { transform: none; }
+  .cl-cta { bottom: var(--base); }
+  .cl-mr { bottom: calc(var(--base) + var(--row)); }
+  .cl-tr { bottom: calc(var(--base) + 2 * var(--row)); }
+  .cl-kicker { font-size: 10px; letter-spacing: .2em; color: #FBF7F1; }
+  .cl-cta .cl-kicker { justify-content: flex-start; }
+  .cl-title,
+  .cl-cta .cl-title {
+    font-size: clamp(22px, 7vw, 28px);
+    line-height: 1.02;
+    color: #E2B358;
+    background: none;
+    -webkit-text-fill-color: #E2B358;
+  }
+  .cl-title em { color: #F1CD82; -webkit-text-fill-color: #F1CD82; }
+  .cl-cta .cl-title { white-space: nowrap; }
+  .cl-cta .cl-kicker::before { background: #EBD081; box-shadow: 0 0 0 3px rgba(235, 208, 129, .3); }
+  /* the splash opens the same chat as the CTA row, so drop it here */
+  .splash { display: none; }
 }
 
 /* ── Interview chat ──────────────────────────────────────────────── */

@@ -104,9 +104,12 @@ export function MagCover() {
             <Barcode /> rokiatech.co
           </span>
           <nav className="cb-nav">
-            <Link href="/work">WORK</Link>
-            <span className="cb-dot" />
-            <Link href="/research">RESEARCH</Link>
+            {/* phones already list work + research in the coverlines */}
+            <Link className="cb-desk" href="/work">WORK</Link>
+            <span className="cb-dot cb-desk" />
+            <Link className="cb-desk" href="/research">RESEARCH</Link>
+            <span className="cb-dot cb-desk" />
+            <Link href="/press">PRESS</Link>
             <span className="cb-dot" />
             <Link href="/contact">CONTACT</Link>
           </nav>
